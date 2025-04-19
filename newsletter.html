@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #fff;
+            padding: 20px;
+            position: relative;
+        }
+
+        .newsletter-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            padding: 4px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: popUp 0.3s ease-out forwards;
+        }
+
+        .newsletter-container.show {
+            display: block;
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .header {
+            background-color: #e65100;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            position: relative;
+        }
+
+        .header span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .close-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .allrecipes-logo {
+            text-align: center;
+            margin: 0;
+        }
+
+        .allrecipes-logo img {
+            width: 30%;
+            height: auto;
+        }
+
+        .description {
+            text-align: left;
+            margin: 0;
+            color: black;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #000;
+            font-weight: bold;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .form-group input[type="email"] {
+            width: 80%;
+            margin-left: 20px;
+            padding: 10px;
+            border: 1px solid #000;
+            font-size: 14px;
+        }
+
+        .subscriptions {
+            background-color: #f9f1e7;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .subscriptions h3 {
+            font-size: 26px;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subscriptions ul {
+            list-style: none;
+        }
+
+        .subscriptions li {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .subscriptions input[type="checkbox"] {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .sign-up-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e65100;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .sign-up-btn:hover {
+            background-color: #d84315;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .newsletter-container {
+                padding: 15px;
+            }
+            .header span {
+                font-size: 20px;
+            }
+            .description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div class="newsletter-container" id="newsletterContainer">
+        <div class="header">
+            <span>Newsletter Sign Up</span>
+            <span class="close-btn" onclick="closePopup()">×</span>
+        </div>
+        <div class="allrecipes-logo">
+            <img src="https://seekvectorlogo.com/wp-content/uploads/2021/12/allrecipes-vector-logo-2021.png" alt="Allrecipes Logo" style="width: 30%;">
+        </div>
+        <div class="description">
+            Get the latest on food trends, recipes, holiday ideas, and easy-to-make meals!
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="yourname@example.com" required>
+        </div>
+        <div class="subscriptions">
+            <h3>Newsletter Subscriptions</h3>
+            <ul>
+                <li><input type="checkbox" checked> Dinner Tonight</li>
+                <li><input type="checkbox" checked> Well Seasoned</li>
+                <li><input type="checkbox" checked> Kitchen Fix</li>
+                <li><input type="checkbox" checked> The Food Feed</li>
+                <li><input type="checkbox" checked> Easy Eats</li>
+                <li><input type="checkbox" checked> The Daily Snack</li>
+            </ul>
+        </div>
+        <a href="#" class="sign-up-btn">SIGN UP</a>
+    </div>
+
+    <script>
+        const newsletterContainer = document.getElementById('newsletterContainer');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // Open popup on page load
+        window.addEventListener('load', function() {
+            newsletterContainer.classList.add('show');
+            overlay.classList.add('show');
+        });
+
+        function closePopup() {
+            newsletterContainer.classList.remove('show');
+            overlay.classList.remove('show');
+            // Go back to the previous page
+            window.history.back();
+        }
+
+        closeBtn.addEventListener('click', closePopup);
+        overlay.addEventListener('click', closePopup);
+    </script>
+</body>
+</html>
