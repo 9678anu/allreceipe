@@ -1,0 +1,823 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fff;
+    top: 0;
+}
+
+.logo-section img {
+    height: 90px;
+}
+
+.search-panel {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.search-panel input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.search-panel input:focus {
+    border-color: #f26c4f;
+    outline: none;
+}
+
+.search-panel button {
+    padding: 8px;
+    border: 1px solid #000;
+    border-left: none;
+    background-color: #d35400;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-panel button:hover {
+    background-color: #d35400;
+}
+
+.search-panel button img {
+    height: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.nav-options a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-options a:hover {
+    color: #f26c4f;
+}
+
+.sub-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sub-menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.sub-menu a:hover {
+    color: #f26c4f;
+}
+
+.mag-btn a {
+    color: #f26c4f;
+    text-decoration: none;
+}
+
+.mag-btn a:hover {
+    background-color: transparent;
+    color: #f26c4f;
+    border: 2px solid #d35400;
+}
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #003087, #0056b3);
+    color: #fff;
+    padding: 8px;
+    text-align: center;
+}
+
+.site-header h1 {
+    margin: 0;
+    border-bottom: 2px solid #f26c4f;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.highlight {
+    color: yellow;
+    font-weight: bold;
+}
+
+.header-stats {
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.highlights {
+    color: #fff;
+    font-size: 28px !important;
+    font-weight: bold;
+}
+
+.header-stats span {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+.main-layout {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.primary-content {
+    flex: 2;
+}
+
+.primary-content img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+.primary-content h1 {
+    font-size: 28px;
+    color: #003087;
+    margin: 15px 0;
+}
+
+.primary-content h2 {
+    font-size: 22px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.primary-content p {
+    font-size: 16px;
+    color: #666;
+}
+
+.side-panel {
+    flex: 1;
+    padding: 8px;
+    top: 100px;
+}
+
+.side-panel h2 {
+    color: #f26c4f;
+    border-bottom: 2px solid #f26c4f;
+    font-size: 20px;
+}
+
+.article-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.article-item:hover {
+    transform: translateX(5px);
+}
+
+.article-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.article-details span {
+    font-size: 12px;
+    color: #666;
+    display: block;
+}
+
+.article-details h3 {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.view-more {
+    border: 2px solid #f26c4f;
+    border-radius: 6px;
+    background-color: transparent;
+    color: #f26c4f;
+    padding: 8px 15px;
+    text-decoration: none;
+}
+
+.view-more:hover {
+    background-color: #d35400;
+    color: #fff;
+    border: none;
+}
+
+.content-wrapper {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.trend-spotlight, .holiday-dishes {
+    padding: 10px;
+}
+
+.trend-gallery, .dish-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.trend-card, .dish-card {
+    text-align: left;
+    padding: 8px;
+    transition: transform 0.3s;
+}
+
+.trend-card:hover, .dish-card:hover {
+    transform: scale(1.05);
+}
+
+.trend-card img, .dish-card img {
+    width: 100%;
+    height: auto;
+}
+
+.trend-card p, .dish-card h3, .dish-card p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #666;
+}
+
+.dish-card h3 {
+    color: #333;
+    font-weight: 600;
+}
+.recipe-finder{
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+    border: 1px solid #333;
+}
+
+.recipe-finder h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.search-tool {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.search-tool input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #333;
+    border-right: none;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.search-tool input:focus {
+    border-color: #f26c4f;
+    outline: none;
+}
+
+.search-tool button {
+    padding: 10px;
+    border: 2px solid #d35400;
+    background-color: #d35400;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-tool button:hover {
+    background-color: #d35400;
+}
+
+.popular-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.popular-options button {
+    padding: 8px 15px;
+    background-color: #d35400;
+    color: #fff;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.popular-options button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
+
+.brunch-container {
+    background-image: url('https://media-hosting.imagekit.io/9683c4574ce34921/8629243_strawberry-lemon-cheesecake-rolls-VAT-A-3x1-07d55663c1244b72a4ad2a172001806d.webp?Expires=1839586719&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Y7CxsMXA9dc6Mu8fFb-dKvLRl4y3YH40buSEn3Yamxs5cG6dfaYklSCSN1oB8IwTb~bvm4~PrpMcIBUxgb5h4-hXPcxyUiUOOpT20ubObC5xEXJOpWa9snuBVhMnucszYn7TYLDM0lFVuBQUQoDwqd~6jgKRFHu0LdJo8XWh8G1ClyiIdmt2DoN31YMr8OxNEzYTFq9FkEg6RVS1gbM1mzjlgQl7IQom38QyBHuwQnC9eST4m4ZReqFZkEfjn1v2VWnmOIsWCy8Y267dXiwukYQCKgUMPzKcmInMd~jB6DI3Gyc41ChwUgXE6TxvRPCiDmXunCfO0poqgeE~V0Dt4A__');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    margin-top: 30px;
+}
+.brunch-container-featured{
+    background-image: url('https://media-hosting.imagekit.io/1dc7442f78bb4eff/ar-allstar-nosheen-CA-0292-3x1-b4022bf3da9b4cae836750565cda0684.webp?Expires=1839656073&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=0MNKE0GqxVWCQtFB4dLwLlYa-82D4aC2QKt~YgDaOFInVBcpw~1euJzKV0Odz58N0LMcGU90UbylL-jgPENdZk7JOtyA1GjPZRcFCsWRYF~V67B73cessMVKE-Hs1wPGutgTvRKX-C5UHQ-bzz94qDg3qd9S0oJaVMgv-JQtwcXtQOkP0ZGO6QAAx57FPblVM5e6wMXpeQ0apW7w0bJw-iezHcG1V2yrWBcoMD3gX2R8hrxoUGrJzHeQyWtiQufB7BA~6EciNYMPs-y5tui9Ms2Xshjd~JWHyzDiECjsjIJupetDPwf5Ii9V9couHID0NVhOyuPM9yfyyc~S1frQOQ__');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+    margin-top: 30px;
+}
+.text-section{
+    background-color:#fff;
+    padding: 20px;
+    color: #000;
+    max-width: 350px;
+    text-align: left;
+    margin-left: 40px;
+}
+.text-section h1 {
+    font-size: 28px;
+    margin: 10px 0;
+    text-decoration: underline #f26c4f;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.text-section p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.category {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.recipe-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.recipe-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.recipe-item img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.recipe-text {
+    flex: 1;
+}
+
+.recipe-text h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.rating {
+    font-size: 14px;
+    color: #666;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+.popular-recipes{
+    padding: 20px;
+}
+.popular-recipes h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.recipe-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.recipe-card {
+    width: 250px;
+    text-align: left;
+    padding: 10px;
+    position: relative;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+}
+.recipe-card h2 {
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.recipe-card p {
+    color: #e74c3c;
+    font-size: 14px;
+    margin: 0;
+}
+
+.recipe-card p span {
+    color: #777;
+    font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .logo-section {
+        margin-bottom: 10px;
+    }
+
+    .search-panel {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .nav-options {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .nav-options a {
+        margin: 5px 0;
+    }
+
+    .sub-nav-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sub-menu a {
+        margin: 5px 10px;
+    }
+
+    .mag-btn {
+        margin-top: 10px;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .primary-content, .side-panel {
+        width: 100%;
+    }
+
+    .side-panel {
+        position: relative;
+        top: 0;
+        max-height: none;
+        margin-top: 20px;
+    }
+
+    .article-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .article-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .trend-gallery, .dish-display {
+        grid-template-columns: 1fr;
+    }
+
+    .search-tool {
+        flex-direction: column;
+    }
+
+    .search-tool input {
+        border-radius: 6px;
+        border-right: 2px solid #e0e0e0;
+        margin-bottom: 10px;
+    }
+
+    .search-tool button {
+        border-radius: 6px;
+        width: 100%;
+    }
+
+    .popular-options {
+        flex-direction: column;
+    }
+
+    .popular-options button {
+        width: 100%;
+    }
+
+    .brunch-container .text-section h1 {
+        font-size: 24px;
+    }
+
+    .recipe-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .recipe-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .recipe-container hr {
+        margin: 15px 0;
+    }
+}
+@media (max-width: 480px) {
+    .search-panel input {
+        font-size: 14px;
+    }
+
+    .site-header h1 {
+        font-size: 20px;
+    }
+
+    .primary-content h1 {
+        font-size: 24px;
+    }
+
+    .primary-content h2 {
+        font-size: 18px;
+    }
+
+    .side-panel h2 {
+        font-size: 18px;
+    }
+
+    .brunch-container .text-section h1 {
+        font-size: 20px;
+    }
+    .recipe-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .recipe-text h3 {
+        font-size: 16px;
+    }
+}
+
+.site-footer {
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    padding: 20px;
+    color: #000;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex: 1;
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  .footer-section p:hover{
+    text-decoration: underline #d35400;
+  }
+  .logo {
+    height: 110px;
+  }
+  
+  .newsletter-box {
+    border: 2px solid #f15a22;
+    padding: 10px;
+    width: fit-content;
+    margin-top: 20px;
+  }
+  
+  .follow-text {
+    margin-top: 20px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    font-size: 20px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #f15a22;
+  }
+  
+  .trust-badge {
+    margin-top: 20px;
+    height: 30px;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .dotdash-logo {
+    height: 30px;
+  }
+  
+  .footer-bottom a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  /* about css start */
+  /* Page Layout */
+.page-layout {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Sidebar Styles */
+.side-bar {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.side-bar ul {
+    list-style: none;
+}
+
+.side-bar li {
+    margin-bottom: 10px;
+}
+
+.side-bar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+}
+.side-bar a:hover {
+    color: #d35400;
+    text-decoration: none !important;
+}
+.side-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+    width: 100%;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.main-content h2 {
+    font-size: 32px;
+    color: black;
+    margin: 15px 0;
+}
+
+.main-content p {
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.main-content ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.main-content li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Leadership Team Styles */
+.leadership-team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.leader-profile {
+    text-align: left;
+    padding: 10px;
+}
+
+.leader-profile h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.leader-profile p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.leader-profile img {
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .page-layout {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .main-content {
+        width: 65%;
+    }
+
+    .leader-profile {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .leader-profile {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
