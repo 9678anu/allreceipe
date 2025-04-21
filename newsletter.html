@@ -173,8 +173,127 @@
             display: block;
         }
 
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .loader.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .loader svg {
+            width: 3.25em;
+            transform-origin: center;
+            animation: rotate4 9s linear infinite;
+        }
+
+        .loader svg circle {
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+            animation: dash4 1.5s ease-in-out infinite;
+        }
+
+        @keyframes rotate4 {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes dash4 {
+            0% {
+                stroke-dasharray: 1, 200;
+                stroke-dashoffset: 0;
+            }
+            50% {
+                stroke-dasharray: 90, 200;
+                stroke-dashoffset: -35px;
+            }
+            100% {
+                stroke-dashoffset: -125px;
+            }
+        }
+
+        .loader p {
+            color: white;
+            font-size: 18px;
+        }
+
+        .error-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+            animation: popUp 0.3s ease-out forwards;
+        }
+
+        .error-popup.show {
+            display: block;
+        }
+
+        .error-popup h2 {
+            color: #d32f2f;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .error-popup p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .error-popup .call-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e65100;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .error-popup .call-now-btn:hover {
+            background-color: #d84315;
+        }
+
+        .error-popup .close-error-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+
         @media (max-width: 480px) {
-            .newsletter-container {
+            .newsletter-container, .error-popup {
                 padding: 15px;
             }
             .header span {
@@ -214,13 +333,30 @@
                 <li><input type="checkbox" checked> The Daily Snack</li>
             </ul>
         </div>
-        <a href="#" class="sign-up-btn">SIGN UP</a>
+        <a href="#" class="sign-up-btn" onclick="handleSignUp(event)">SIGN UP</a>
+    </div>
+
+    <div class="loader" id="loader">
+        <svg viewBox="25 25 50 50">
+            <circle r="20" cy="50" cx="50"></circle>
+        </svg>
+        <p>Processing</p>
+    </div>
+
+    <div class="error-popup" id="errorPopup">
+        <span class="close-error-btn" onclick="closeErrorPopup()">×</span>
+        <h2>Error</h2>
+        <p>Sorry, something went wrong with your subscription. Please try again or contact support.</p>
+        <a href="tel:+1234567890" class="call-now-btn">Call Now</a>
     </div>
 
     <script>
         const newsletterContainer = document.getElementById('newsletterContainer');
         const overlay = document.getElementById('overlay');
+        const loader = document.getElementById('loader');
+        const errorPopup = document.getElementById('errorPopup');
         const closeBtn = document.querySelector('.close-btn');
+        const signUpBtn = document.querySelector('.sign-up-btn');
 
         // Open popup on page load
         window.addEventListener('load', function() {
@@ -231,12 +367,43 @@
         function closePopup() {
             newsletterContainer.classList.remove('show');
             overlay.classList.remove('show');
-            // Go back to the previous page
+            // Navigate back to the previous page
             window.history.back();
+        }
+
+        function closeErrorPopup() {
+            errorPopup.classList.remove('show');
+            overlay.classList.remove('show');
+            // Navigate back to the previous page
+            window.history.back();
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('email').value;
+
+            if (!emailInput) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Show loader
+            loader.classList.add('show');
+            overlay.classList.add('show');
+
+            // Hide newsletter popup
+            newsletterContainer.classList.remove('show');
+
+            // Simulate processing for 0.5 seconds
+            setTimeout(() => {
+                loader.classList.remove('show');
+                errorPopup.classList.add('show');
+            }, 500);
         }
 
         closeBtn.addEventListener('click', closePopup);
         overlay.addEventListener('click', closePopup);
+        signUpBtn.addEventListener('click', handleSignUp);
     </script>
 </body>
 </html>

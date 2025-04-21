@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,27 +8,20 @@
 }
 
 body {
-    background-color: #fff;
+    background-color: #F0F3F8;
     max-height: 100vh;
     display: flex;
     flex-direction: column;
     height: 100vh;
     position: relative;
 }
-
-.container {
-    margin: auto;
-    max-width: 880px;
-    width: 100%;
-    padding: 40px 0;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    flex-grow: 1;
+.bg-svg {
+    position: absolute;
+    z-index: -1;
 }
 #loginForm {
     background-color: #fff !important;
-    width: 80%;
+    width: 100%;
     height: 80vh;
     border-radius: 12px;
     padding: 40px;
@@ -42,9 +36,22 @@ p {
     font-weight: 400;
     letter-spacing: 0.4px;
     line-height: 20px;
-    color: black;
+    color: #f26c4f;
     margin-top: 8px;
 }
+
+/* a {
+    font-weight: 600;
+    border-radius: 4px;
+    display: inline;
+    padding: 10px;
+    margin-top: 20px;
+    flex-direction: row;
+    color:whitesmoke;
+    background-color: #001c64;
+    text-decoration: none;
+    box-shadow: none;
+} */
 input {
     background-color: transparent;
     color: rgb(60, 74, 91);
@@ -109,7 +116,7 @@ label {
     width: 100%;
     background-color:#f26c4f;
     color: white;
-    border-color:#d35400;
+    border-color:#f26c4f;
     box-shadow: none;
     cursor: pointer;
     pointer-events: all;
@@ -125,7 +132,49 @@ button{
     color: #fff;
     box-shadow: none;
     cursor: pointer;
-    pointer-events: all;}
+    pointer-events: all;
+}
+@media screen and (max-width: 768px) {
+    .footer {
+        position: static;
+        padding: 20px 0;
+    }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .leftdiv {
+        display: none;
+    }
+
+    .rightdiv {
+        width: 100%;
+    }
+
+    form,
+    .loginForm {
+        height: auto;
+        padding: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .footer {
+        position: static;
+        padding: 20px 0;
+    }
+}
+
+
+
 .loader {
     position: fixed;
     top: 0;
@@ -167,6 +216,45 @@ button{
     stroke-linecap: round;
     animation: dash4 1.5s ease-in-out infinite;
 }
+
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}
+
+
+.contaner-2 {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.heroBanner {
+    min-height: 600px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .popupcall {
     width: 100vw;
     height: 100vh;
@@ -180,16 +268,23 @@ button{
     align-items: center;
     
 }
+
 .popupbox {
-    width: 400px;
+    width: 420px;
     padding: 40px;
     margin-left: 20px;
     margin-right: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: #fff;
     text-align: center;
     animation: open 1s ease-in-out;
 }
+
+.popupbox h4, .popupbox h4 a {
+    color:#001c64;
+    font-weight: normal;
+}
+
 @keyframes open {
     0%{
         scale: 0;
@@ -200,9 +295,4 @@ button{
         scale: 1;
         opacity: 1;
     }
-}
-.login-lnk{
-    position: static;
-    text-decoration: underline !important;
-    font-weight: normal !important;
 }
