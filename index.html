@@ -8,22 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <nav class="top-nav">
+    <nav class="top-nav" id="topNav">
         <div class="logo-section">
             <img src="https://seekvectorlogo.com/wp-content/uploads/2021/12/allrecipes-vector-logo-2021.png" alt="Allrecipes Logo">
         </div>
+        
         <div class="search-panel">
             <input type="text" placeholder="Find a recipe or ingredient">
             <button type="submit"><img src="https://media-hosting.imagekit.io/bfa5802810644fd7/download-removebg-preview%20(1).png?Expires=1839570590&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=DzrAGLU5Z1uCx~kSIsFm0kKcEjpwRsWorZmJ4mbv~8drgi5-FT67pgaI1w~9ffHQBOs8qhz6-T-hTh7uZMaWtjlr2XXeieqfZhBOwSryPLGBNAiyeBInHerjyBBvEHQCxdTMyd9XSDxpf7kBwVmk-PdY5XsHld5DVVYdxQS147kanakqnWP1mhqn0WEILcf26xqZ~21g1Oe~IShC2MYZsD1Km3gd5dOy~PZ9LgaqnhGTPzdc-kjUKRiwxMsKImjoFU4tLPTeaR8dEPx3Lmtw2euN871TIqYheFuIcTwXUPteEdKPoUP2W91JXYMnRAYDUVOvrDYcpyCpfWe0HqpwYg__" alt="Search"></button>
         </div>
-        <div class="nav-options">
+        
+        <div class="nav-options" id="navOptions">
+            <div class="close-btn" id="closeBtn">
+                <i class="fas fa-times"></i>
+            </div>
             <a href="login.html">Log In</a>
             <a href="about.html">About Us</a>
             <a href="#">Magazine <span>▼</span></a>
             <a href="newsletter.html">Newsletters</a>
             <a href="#">Sweepstakes</a>
         </div>
+        
+        <div class="hamburger" id="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        
+        <div class="mobile-search">
+            <input type="text" placeholder="Find a recipe or ingredient">
+        </div>
     </nav>
+    
     <div class="sub-nav-container">
         <div class="sub-menu">
             <a href="#">DINNERS</a>
@@ -40,6 +56,40 @@
             <a href="#">GET THE MAGAZINE</a>
         </div>
     </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navOptions = document.getElementById('navOptions');
+    const closeBtn = document.getElementById('closeBtn');
+    const topNav = document.getElementById('topNav');
+
+    // Toggle mobile menu on hamburger click
+    hamburger.addEventListener('click', () => {
+        topNav.classList.toggle('mobile-menu-active');
+    });
+
+    // Close mobile menu on close button click
+    closeBtn.addEventListener('click', () => {
+        topNav.classList.remove('mobile-menu-active');
+    });
+
+    // Optional: Close menu when clicking a link
+    navOptions.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            topNav.classList.remove('mobile-menu-active');
+        });
+    });
+
+    // Optional: Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navOptions.contains(e.target) && !hamburger.contains(e.target)) {
+            topNav.classList.remove('mobile-menu-active');
+        }
+    });
+});
+    </script>
+
     
     <header class="site-header">
         <a href="about.html" style="color: white; text-decoration: none;"><h1>America's<span class="highlight"> #1 Trusted Recipe Resource</span> since 1997</h1></a>
